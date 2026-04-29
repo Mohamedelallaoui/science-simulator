@@ -1,0 +1,263 @@
+/* ── FULL PAGE WRAPPER ── */
+.proj-fullpage {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 68px);
+  overflow: hidden;
+}
+
+/* ── CANVAS ── */
+.proj-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── GLASS PANEL BASE ── */
+.proj-glass {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
+  color: #1a1a2e;
+  font-family: "Nunito", sans-serif;
+}
+
+/* ── LEFT PANEL ── */
+.proj-glass--left {
+  top: 28px;
+  left: 28px;
+  width: 230px;
+  padding: 20px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.glass-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(30, 30, 60, 0.7);
+  margin: 0;
+}
+
+.glass-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.glass-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.glass-row--slider {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.glass-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.glass-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(30, 30, 60, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.glass-val {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.glass-val em {
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(30, 30, 60, 0.5);
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 3px;
+  accent-color: #5a7aaa;
+  cursor: pointer;
+}
+
+.toggle-row {
+  display: flex;
+  gap: 4px;
+}
+
+.tog {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(30, 30, 60, 0.6);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tog--on {
+  background: rgba(90, 122, 170, 0.85);
+  color: #fff;
+  border-color: rgba(90, 122, 170, 0.5);
+}
+
+.glass-select {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  color: #1a1a2e;
+  padding: 3px 6px;
+  cursor: pointer;
+}
+
+/* actions */
+.glass-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.btn-launch {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  background: rgba(90, 122, 170, 0.85);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 9px;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 14px rgba(90, 122, 170, 0.35);
+}
+
+.btn-launch:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.btn-launch:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-reset {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.3);
+  color: rgba(30, 30, 60, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 7px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-reset:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* ── BOTTOM RESULTS PANEL ── */
+.proj-glass--bottom {
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  animation: slideUp 0.35s ease both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 14px 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.result-item:last-child {
+  border-right: none;
+}
+
+.result-icon {
+  font-size: 0.9rem;
+}
+
+.result-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(30, 30, 60, 0.55);
+}
+
+.result-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1;
+}
+
+.result-value em {
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(30, 30, 60, 0.5);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .proj-glass--left {
+    width: calc(100% - 32px);
+    top: 12px;
+    left: 16px;
+    right: 16px;
+  }
+  .proj-glass--bottom {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .result-item {
+    flex: 1 1 45%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+}

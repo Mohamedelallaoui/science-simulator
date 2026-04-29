@@ -1,0 +1,151 @@
+.catpage {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem;
+  animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.catpage-back {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+  transition: color 0.15s;
+}
+.catpage-back:hover { color: var(--accent); }
+
+.catpage-header {
+  margin-bottom: 2.5rem;
+}
+
+.catpage-title {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+.catpage-sub {
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* category cards */
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+  margin-bottom: 3rem;
+}
+
+.cat-card {
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.18s, box-shadow 0.2s, background 0.2s;
+  background: var(--surface);
+  outline: none;
+}
+
+.cat-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.cat-card-icon {
+  font-size: 2.6rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.cat-card-name {
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cat-card-desc {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.cat-card-count {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.7rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* physics */
+.cat-card--physics .cat-card-name { color: var(--accent); }
+.cat-card--physics .cat-card-count {
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.cat-card--physics:hover,
+.cat-card--physics.cat-card--active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+  box-shadow: 0 8px 32px var(--accent-glow);
+  transform: translateY(-4px);
+}
+
+/* chemistry */
+.cat-card--chemistry .cat-card-name { color: var(--accent2); }
+.cat-card--chemistry .cat-card-count {
+  background: color-mix(in srgb, var(--accent2) 12%, transparent);
+  color: var(--accent2);
+  border: 1px solid color-mix(in srgb, var(--accent2) 30%, transparent);
+}
+.cat-card--chemistry:hover,
+.cat-card--chemistry.cat-card--active {
+  border-color: var(--accent2);
+  background: color-mix(in srgb, var(--accent2) 5%, var(--surface));
+  box-shadow: 0 8px 32px rgba(61,232,176,0.15);
+  transform: translateY(-4px);
+}
+
+/* simulations section */
+.sims-section {
+  animation: fadeUp 0.35s ease both;
+}
+
+.sims-section-title {
+  font-family: "Fraunces", serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 1.4rem;
+}
+
+.sims-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .cat-grid { grid-template-columns: 1fr; }
+  .catpage { padding: 2rem 1.2rem 4rem; }
+}

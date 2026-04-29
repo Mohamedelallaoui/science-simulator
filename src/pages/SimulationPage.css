@@ -1,0 +1,126 @@
+.simpage {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+  animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.simpage--notfound {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--text-muted);
+  align-items: flex-start;
+  padding: 3rem 2rem;
+}
+
+.simpage-back {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+  transition: color 0.15s;
+}
+.simpage-back:hover { color: var(--accent); }
+
+.simpage-header { margin-bottom: 2rem; }
+
+.simpage-cat {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.simpage-cat--physics {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.simpage-cat--chemistry {
+  color: var(--accent2);
+  background: color-mix(in srgb, var(--accent2) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent2) 30%, transparent);
+}
+
+.simpage-title {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.7rem;
+}
+
+.simpage-desc {
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+.simpage-canvas {
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: 20px;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.simpage-placeholder {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* fullscreen sim wrapper */
+.simpage-fullscreen {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 68px);
+  overflow: hidden;
+}
+
+.simpage-back-float {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  z-index: 20;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(30,30,60,0.7);
+  text-decoration: none;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 20px;
+  padding: 6px 14px;
+  transition: background 0.15s;
+}
+
+.simpage-back-float:hover {
+  background: rgba(255,255,255,0.45);
+  color: #1a1a2e;
+}
