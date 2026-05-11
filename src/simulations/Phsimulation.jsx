@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useLang } from "../context/LanguageContext";
-import "./PHSimulation.css";
+import "./Phsimulation.css";
 
 const LABELS = {
   fr: {

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useLang } from "../context/LanguageContext";
-import "./ForcesSimulation.css";
+import "./Forcessimulation.css";
 
 const LABELS = {
   fr: {

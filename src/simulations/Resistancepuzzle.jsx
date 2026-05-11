@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import "./ResistancePuzzle.css";
+import "./Resistancepuzzle.css";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const RESISTOR_COLORS = [

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useLang } from "../context/LanguageContext";
-import "./CircuitSimulation.css";
+import "./Circuitsimulation.css";
 
 // ── LABELS ──
 const LABELS = {
