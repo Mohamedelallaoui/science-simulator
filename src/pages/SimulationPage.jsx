@@ -7,6 +7,9 @@ import PHSimulation from "../simulations/PHSimulation";
 import ForcesSimulation from "../simulations/ForcesSimulation";
 import LensSimulation from "../simulations/LensSimulation";
 import RCSimulation from "../simulations/RCSimulation";
+import ResistancePuzzle from "../simulations/ResistancePuzzle";
+import SmartInterference from "../simulations/SmartInterference";
+import FreeFall from "../simulations/FreeFall";
 import "./SimulationPage.css";
 
 const SIM_COMPONENTS = {
@@ -16,6 +19,9 @@ const SIM_COMPONENTS = {
   forces: ForcesSimulation,
   lens: LensSimulation,
   rc: RCSimulation,
+  "resistance-puzzle": ResistancePuzzle,
+  "smart-interference": SmartInterference,
+  "free-fall": FreeFall,
 };
 
 export default function SimulationPage() {

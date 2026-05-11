@@ -1,56 +1,90 @@
+/* ══════════════════════════════════════════
+   HOME PAGE — V Science Simulator
+   Enhanced layout: hero split, sim showcase,
+   features grid, sims preview, footer credit
+   ══════════════════════════════════════════ */
+
 .home {
   position: relative;
-  min-height: calc(100vh - 68px);
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
-  padding: 2rem;
+  padding: 0;
+  background: var(--bg);
 }
 
-/* decorative blurred orbs */
+/* ── Background grid ── */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(61,232,176,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,232,176,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* ── Decorative orbs ── */
 .orb {
-  position: absolute;
+  position: fixed;
   border-radius: 50%;
-  filter: blur(90px);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 0;
 }
-
 .orb--1 {
-  width: 520px;
-  height: 520px;
+  width: 600px; height: 600px;
   background: var(--accent-glow);
-  top: -120px;
-  left: -80px;
+  top: -180px; left: -120px;
 }
-
 .orb--2 {
-  width: 380px;
-  height: 380px;
-  background: rgba(61,232,176,0.1);
-  bottom: -80px;
-  right: -60px;
+  width: 400px; height: 400px;
+  background: rgba(126,184,255,0.08);
+  bottom: -100px; right: -80px;
+}
+.orb--3 {
+  width: 300px; height: 300px;
+  background: rgba(192,132,252,0.07);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
 }
 
-/* hero */
+/* ══════════════════════════════
+   HERO — two-column split
+   ══════════════════════════════ */
 .hero {
   position: relative;
   z-index: 1;
-  text-align: center;
-  max-width: 680px;
-  animation: fadeUp 0.6s ease both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1100px;
+  width: 100%;
+  padding: 6rem 2rem 4rem;
+  animation: fadeUp 0.7s ease both;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
+  from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── LEFT column ── */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
 .hero-eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-self: flex-start;
   font-family: "Outfit", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -59,26 +93,66 @@
   border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
   border-radius: 20px;
   padding: 0.3rem 1rem;
-  margin-bottom: 1.6rem;
 }
 
 .hero-title {
   font-family: "Fraunces", serif;
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
   font-weight: 900;
-  font-style: italic;
   color: var(--text-primary);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: 1.2rem;
+  margin: 0;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
 }
 
 .hero-sub {
   font-family: "Outfit", sans-serif;
-  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   color: var(--text-secondary);
-  line-height: 1.75;
-  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Curriculum badge */
+.curriculum-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(61,232,176,0.06);
+  border: 1px solid rgba(61,232,176,0.2);
+  border-radius: 12px;
+  padding: 0.7rem 1.1rem;
+  width: fit-content;
+}
+.curriculum-flag { font-size: 1.6rem; }
+.curriculum-badge div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.curriculum-badge strong {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.curriculum-badge span {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* CTA row */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .hero-cta {
@@ -89,48 +163,413 @@
   color: var(--bg);
   border: none;
   border-radius: 50px;
-  padding: 0.9rem 2.5rem;
+  padding: 0.85rem 2.2rem;
   cursor: pointer;
   letter-spacing: 0.02em;
   transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s;
-  box-shadow: 0 4px 20px var(--accent-glow);
+  box-shadow: 0 4px 24px var(--accent-glow);
 }
-
 .hero-cta:hover {
   transform: translateY(-3px);
   opacity: 0.92;
-  box-shadow: 0 10px 36px var(--accent-glow);
+  box-shadow: 0 10px 40px var(--accent-glow);
 }
 
-/* feature pills row */
-.hero-features {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  margin-top: 3rem;
-  flex-wrap: wrap;
-}
-
-.feature {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+.hero-link {
   font-family: "Outfit", sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.hero-link:hover { color: var(--accent); }
+
+/* Stats */
+.stats-row {
+  display: flex;
+  gap: 2rem;
+  padding-top: 0.5rem;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.stat-value {
+  font-family: "Fraunces", serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.stat-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.feature-icon { font-size: 1.1rem; }
-
-.feature-divider {
-  width: 1px;
-  height: 18px;
-  background: var(--border);
+/* ══════════════════════════════
+   RIGHT column – visual showcase
+   ══════════════════════════════ */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-@media (max-width: 480px) {
-  .hero-features { gap: 0.8rem; }
-  .feature-divider { display: none; }
+.sim-showcase {
+  position: relative;
+  width: 340px;
+  height: 380px;
+}
+
+/* Screen mockup */
+.screen-mockup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(61,232,176,0.1);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%,-50%) translateY(0); }
+  50%       { transform: translate(-50%,-50%) translateY(-10px); }
+}
+
+.screen-bar {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.screen-bar span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+.screen-bar span:nth-child(1) { background: #ff5f57; }
+.screen-bar span:nth-child(2) { background: #ffbd2e; }
+.screen-bar span:nth-child(3) { background: #28ca41; }
+
+.screen-body { padding: 0.5rem; }
+
+.screen-animation {
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.sci-svg {
+  width: 100%;
+  height: auto;
+}
+
+.screen-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Floating chip cards */
+.sim-chip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(10,15,25,0.85);
+  border: 1px solid color-mix(in srgb, var(--chip-color) 35%, transparent);
+  border-radius: 40px;
+  padding: 0.4rem 0.9rem 0.4rem 0.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  white-space: nowrap;
+  animation: chipFloat var(--dur, 4s) ease-in-out infinite;
+  animation-delay: var(--del, 0s);
+}
+
+@keyframes chipFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.sim-chip--0 { top: 2%;  left: -20%; --dur:4.2s; --del:0s; }
+.sim-chip--1 { top: 20%; right: -22%; --dur:3.8s; --del:0.5s; }
+.sim-chip--2 { top: 55%; left: -25%; --dur:4.5s; --del:1s; }
+.sim-chip--3 { bottom: 18%; right: -20%; --dur:3.6s; --del:0.3s; }
+.sim-chip--4 { bottom: 2%;  left: -10%; --dur:4.1s; --del:0.8s; }
+.sim-chip--5 { top: 40%; right: -18%; --dur:3.9s; --del:1.2s; }
+
+.sim-chip-icon { font-size: 1.2rem; }
+
+.sim-chip div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  line-height: 1.2;
+}
+.sim-chip strong {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--chip-color);
+}
+.sim-chip small {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════════
+   FEATURES SECTION
+   ══════════════════════════════ */
+.features-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  padding: 3rem 2rem;
+  animation: fadeUp 0.7s ease 0.2s both;
+}
+
+.section-title {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.section-sub {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.feature-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.6rem 1.2rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+.feature-card:hover {
+  background: rgba(61,232,176,0.05);
+  border-color: rgba(61,232,176,0.25);
+  transform: translateY(-4px);
+}
+.feature-card-icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+.feature-card h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+.feature-card p {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ══════════════════════════════
+   SIMULATIONS PREVIEW GRID
+   ══════════════════════════════ */
+.sims-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  padding: 2rem 2rem 4rem;
+}
+
+.sims-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.sim-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.8rem 1.4rem;
+  cursor: pointer;
+  transition: transform 0.22s, border-color 0.22s, background 0.22s;
+}
+.sim-card:hover {
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--card-accent) 40%, transparent);
+  background: color-mix(in srgb, var(--card-accent) 5%, transparent);
+}
+
+.sim-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, var(--card-accent) 0%, transparent 65%);
+  opacity: 0.07;
+  pointer-events: none;
+  transition: opacity 0.22s;
+}
+.sim-card:hover .sim-card-glow { opacity: 0.15; }
+
+.sim-card-icon {
+  display: block;
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+.sim-card h3 {
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.4rem;
+}
+.sim-card p {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+.sim-card-cta {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--card-accent);
+  letter-spacing: 0.02em;
+  transition: gap 0.2s;
+}
+
+/* ══════════════════════════════
+   FOOTER
+   ══════════════════════════════ */
+.home-footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: "Fraunces", serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.footer-copy {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.footer-badges {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-badge {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 20px;
+  padding: 0.2rem 0.8rem;
+}
+
+.footer-dev {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  width: 100%;
+}
+.footer-dev strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════ */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 4rem 1.5rem 2rem;
+    text-align: center;
+  }
+  .hero-left { align-items: center; }
+  .hero-right { order: -1; }
+  .sim-showcase { width: 280px; height: 320px; }
+  .sim-chip--0, .sim-chip--2, .sim-chip--4 { display: none; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .sims-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-row { justify-content: center; }
+  .curriculum-badge { align-self: center; }
+}
+
+@media (max-width: 560px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .sims-grid { grid-template-columns: 1fr; }
+  .sim-showcase { width: 240px; height: 280px; }
+  .sim-chip { display: none; }
+  .hero-actions { justify-content: center; }
 }

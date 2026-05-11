@@ -59,6 +59,36 @@ const simulations = [
     descAr: "شاهد شحن وتفريغ المكثف — أتقن ثابت الزمن τ.",
     icon: "📈",
   },
+  {
+    id: "resistance-puzzle",
+    titleFr: "Association de Résistances — Puzzle",
+    titleAr: "تجميع المقاومات — لغز تفاعلي",
+    category: "Physique",
+    niveau: "Tronc Commun",
+    descFr: "Construis tes circuits série et parallèle, calcule Req et relève les défis.",
+    descAr: "ابنِ دوائرك التسلسلية والتوازية، احسب Req وتحدَّ نفسك.",
+    icon: "🔌",
+  },
+  {
+    id: "smart-interference",
+    titleFr: "Interférences Lumineuses Intelligentes",
+    titleAr: "التداخل الضوئي الذكي",
+    category: "Physique",
+    niveau: "2ème Bac",
+    descFr: "Comparez deux faisceaux, visualisez I(x), et prédisez l'interfrange — mode comparaison et défi.",
+    descAr: "قارن فاصلتين ضوئيتين، شاهد I(x)، وتنبأ بالأهداب — وضع المقارنة والتحدي.",
+    icon: "🔬",
+  },
+  {
+    id: "free-fall",
+    titleFr: "Chute Libre Comparée",
+    titleAr: "السقوط الحر المقارن",
+    category: "Physique",
+    niveau: "Tronc Commun · 2ème Bac",
+    descFr: "Lâche un objet sur 9 planètes — compare g, t et v avec animation et graphiques.",
+    descAr: "أسقط جسماً على 9 كواكب — قارن g وt وv بتحريك ورسوم بيانية.",
+    icon: "🪐",
+  },
 ];
 
 export default simulations;

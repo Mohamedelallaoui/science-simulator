@@ -1,0 +1,506 @@
+/* ResistancePuzzle.css — Blueprint · Technical Drawing theme */
+
+:root {
+  --bp-bg: #050d1a;
+  --bp-grid: rgba(30, 100, 200, 0.12);
+  --bp-line: rgba(60, 140, 255, 0.2);
+  --bp-blue: #3b82f6;
+  --bp-cyan: #22d3ee;
+  --bp-green: #22c55e;
+  --bp-yellow: #facc15;
+  --bp-red: #f87171;
+  --bp-text: #c8deff;
+  --bp-muted: rgba(140, 190, 255, 0.45);
+  --bp-card: rgba(255, 255, 255, 0.035);
+  --bp-border: rgba(60, 120, 220, 0.18);
+}
+
+.rp-sim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 20px 40px;
+  background: var(--bp-bg);
+  min-height: 100vh;
+  font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
+  color: var(--bp-text);
+
+  /* Blueprint grid */
+  background-image:
+    linear-gradient(var(--bp-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bp-grid) 1px, transparent 1px),
+    linear-gradient(var(--bp-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bp-line) 1px, transparent 1px);
+  background-size: 10px 10px, 10px 10px, 50px 50px, 50px 50px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.rp-sim__header { text-align: center; }
+
+.rp-sim__badges {
+  display: flex; gap: 8px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 10px;
+}
+.rp-badge {
+  font-family: 'Courier New', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 12px; border-radius: 2px;
+}
+.rp-badge--level {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+.rp-badge--topic {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: rgba(147, 197, 253, 0.8);
+}
+.rp-sim__title {
+  font-size: 24px; font-weight: 700;
+  color: #e2f0ff; margin: 0 0 5px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+.rp-sim__title-icon { margin-right: 6px; }
+.rp-sim__subtitle {
+  font-family: 'Courier New', monospace;
+  font-size: 11px; color: var(--bp-muted); margin: 0;
+}
+.rp-sim__subtitle sub { font-size: 10px; }
+
+/* ── Challenges ──────────────────────────────────────────────────────────── */
+.rp-challenges {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  max-width: 900px; width: 100%;
+}
+.rp-challenges__label {
+  font-family: 'Courier New', monospace;
+  font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--bp-muted);
+}
+.rp-challenges__btn {
+  background: var(--bp-card);
+  border: 1px solid var(--bp-border);
+  color: rgba(147, 197, 253, 0.65);
+  padding: 6px 14px; border-radius: 3px;
+  cursor: pointer; font-size: 12px; font-weight: 600;
+  transition: all 0.18s;
+  font-family: inherit;
+}
+.rp-challenges__btn:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.45);
+  color: #93c5fd;
+}
+.rp-challenges__btn.active {
+  background: rgba(59, 130, 246, 0.18);
+  border-color: var(--bp-blue);
+  color: #bfdbfe;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.25);
+}
+.rp-challenges__btn--free {
+  border-color: rgba(250, 204, 21, 0.3);
+  color: rgba(250, 204, 21, 0.65);
+}
+.rp-challenges__btn--free:hover, .rp-challenges__btn--free.active {
+  border-color: var(--bp-yellow);
+  background: rgba(250, 204, 21, 0.1);
+  color: var(--bp-yellow);
+}
+
+/* ── Challenge banner ────────────────────────────────────────────────────── */
+.rp-challenge-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  background: rgba(59, 130, 246, 0.07);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 6px; padding: 14px 18px;
+  width: 100%; max-width: 900px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.rp-challenge-banner--solved {
+  border-color: rgba(34, 197, 94, 0.5);
+  background: rgba(34, 197, 94, 0.08);
+}
+.rp-cb__left { display: flex; gap: 12px; align-items: center; }
+.rp-cb__icon { font-size: 24px; }
+.rp-cb__title { font-weight: 700; font-size: 14px; color: #e2f0ff; }
+.rp-cb__meta {
+  font-family: 'Courier New', monospace;
+  font-size: 11px; color: var(--bp-muted); margin-top: 3px;
+}
+.rp-cb__meta strong { color: var(--bp-cyan); }
+.rp-cb__meta em { font-style: normal; color: rgba(147, 197, 253, 0.6); }
+.rp-cb__check {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #4ade80; padding: 8px 20px;
+  border-radius: 3px; cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.05em; transition: all 0.18s;
+}
+.rp-cb__check:hover {
+  background: rgba(34, 197, 94, 0.28);
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.3);
+}
+
+/* ── Workspace ───────────────────────────────────────────────────────────── */
+.rp-workspace {
+  display: flex; gap: 16px; width: 100%; max-width: 900px;
+  align-items: flex-start; flex-wrap: wrap;
+}
+
+/* ── Bank ────────────────────────────────────────────────────────────────── */
+.rp-bank {
+  width: 210px; min-width: 180px;
+  background: var(--bp-card);
+  border: 1px solid var(--bp-border);
+  border-radius: 6px; padding: 14px 14px;
+  display: flex; flex-direction: column; gap: 12px;
+  flex-shrink: 0;
+}
+.rp-bank__title {
+  font-family: 'Courier New', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--bp-muted); margin-bottom: 2px;
+}
+.rp-bank__list { display: flex; flex-direction: column; gap: 6px; }
+
+.rp-resistor-chip {
+  display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid var(--rc, #64748b);
+  border-radius: 4px;
+  padding: 6px 10px;
+  background: color-mix(in srgb, var(--rc, #64748b) 10%, transparent);
+  cursor: pointer; transition: all 0.16s;
+}
+.rp-resistor-chip:hover {
+  background: color-mix(in srgb, var(--rc, #64748b) 20%, transparent);
+}
+.rp-resistor-chip.selected {
+  background: color-mix(in srgb, var(--rc, #64748b) 28%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--rc, #64748b) 50%, transparent);
+  transform: scale(1.03);
+}
+.rp-resistor-chip__body {
+  display: flex; align-items: center; gap: 6px;
+}
+.rp-resistor-chip__zig {
+  font-size: 18px; line-height: 1;
+  color: var(--rc, #64748b);
+}
+.rp-resistor-chip__val {
+  font-family: 'Courier New', monospace;
+  font-size: 12px; font-weight: 700;
+  color: var(--rc, #64748b);
+}
+.rp-resistor-chip__rm {
+  background: transparent; border: none;
+  color: var(--rc, #64748b); opacity: 0.5;
+  cursor: pointer; font-size: 14px; line-height: 1;
+  padding: 0 2px; transition: opacity 0.15s;
+}
+.rp-resistor-chip__rm:hover { opacity: 1; }
+
+.rp-bank__add { display: flex; flex-direction: column; gap: 6px; }
+.rp-bank__add-title {
+  font-family: 'Courier New', monospace;
+  font-size: 9px; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--bp-muted);
+}
+.rp-bank__add-row { display: flex; align-items: center; gap: 5px; }
+.rp-bank__add-input {
+  width: 70px; background: rgba(0,0,0,0.3);
+  border: 1px solid var(--bp-border); border-radius: 3px;
+  color: var(--bp-text); padding: 5px 7px;
+  font-family: 'Courier New', monospace; font-size: 12px;
+  outline: none;
+}
+.rp-bank__add-input:focus { border-color: var(--bp-blue); }
+.rp-bank__add-unit {
+  font-family: 'Courier New', monospace;
+  font-size: 11px; color: var(--bp-muted);
+}
+.rp-bank__add-btn {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #93c5fd; border-radius: 3px;
+  padding: 5px 10px; cursor: pointer;
+  font-size: 16px; line-height: 1;
+  transition: background 0.16s;
+}
+.rp-bank__add-btn:hover { background: rgba(59, 130, 246, 0.28); }
+.rp-bank__slider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 3px; border-radius: 3px;
+  background: rgba(59, 130, 246, 0.15);
+  accent-color: var(--bp-blue); cursor: pointer;
+}
+.rp-bank__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px; height: 13px; border-radius: 2px;
+  background: var(--bp-blue);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+.rp-bank__help { display: flex; flex-direction: column; gap: 7px; }
+.rp-help-step {
+  display: flex; gap: 8px; align-items: flex-start;
+  font-size: 11px; color: rgba(147, 197, 253, 0.5); line-height: 1.4;
+}
+.rp-help-step__num {
+  flex-shrink: 0;
+  width: 16px; height: 16px;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Courier New', monospace;
+  font-size: 9px; font-weight: 700; color: #93c5fd;
+}
+.rp-help-step strong { color: #93c5fd; }
+
+/* ── Builder ─────────────────────────────────────────────────────────────── */
+.rp-builder {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.rp-builder__top {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.rp-builder__title {
+  font-family: 'Courier New', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--bp-muted);
+}
+.rp-builder__req {
+  font-family: 'Courier New', monospace;
+  font-size: 13px; color: var(--bp-muted);
+}
+.rp-builder__req sub { font-size: 10px; }
+.rp-builder__req-val {
+  font-size: 18px; font-weight: 700; color: var(--bp-cyan);
+  text-shadow: 0 0 14px rgba(34, 211, 238, 0.5);
+}
+.rp-builder__actions { display: flex; gap: 7px; margin-left: auto; }
+.rp-builder__action {
+  background: var(--bp-card);
+  border: 1px solid var(--bp-border);
+  color: var(--bp-muted); padding: 5px 12px;
+  border-radius: 3px; cursor: pointer;
+  font-size: 11px; transition: all 0.16s;
+  font-family: inherit;
+}
+.rp-builder__action:hover {
+  border-color: var(--bp-blue); color: #93c5fd;
+  background: rgba(59, 130, 246, 0.08);
+}
+.rp-builder__action--reset {
+  border-color: rgba(248, 113, 113, 0.3);
+  color: rgba(248, 113, 113, 0.6);
+}
+.rp-builder__action--reset:hover {
+  border-color: var(--bp-red);
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--bp-red);
+}
+
+/* ── Schematic ───────────────────────────────────────────────────────────── */
+.rp-schematic {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 6px;
+  min-height: 120px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px; overflow-x: auto;
+}
+.rp-schematic__inner { display: flex; justify-content: center; }
+.rp-schematic__empty {
+  font-family: 'Courier New', monospace;
+  font-size: 12px; color: var(--bp-muted);
+}
+
+/* ── Tree ────────────────────────────────────────────────────────────────── */
+.rp-tree {
+  background: var(--bp-card);
+  border: 1px solid var(--bp-border);
+  border-radius: 6px; padding: 14px;
+  min-height: 80px;
+}
+.rp-tree__empty {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px; padding: 16px;
+  text-align: center;
+}
+.rp-tree__empty-icon { font-size: 28px; opacity: 0.4; }
+.rp-tree__empty p {
+  font-size: 12px; color: var(--bp-muted); margin: 0;
+}
+
+/* Slot styles */
+.rp-slot--empty {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 32px;
+  border: 1px dashed rgba(59, 130, 246, 0.35);
+  border-radius: 3px; cursor: pointer;
+  color: rgba(59, 130, 246, 0.4); font-size: 18px;
+  transition: all 0.16s;
+}
+.rp-slot--empty:hover {
+  border-color: var(--bp-blue);
+  color: var(--bp-blue);
+  background: rgba(59, 130, 246, 0.08);
+}
+.rp-slot--resistor {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid; border-radius: 4px;
+  padding: 4px 8px; position: relative;
+}
+.rp-slot__val {
+  font-family: 'Courier New', monospace;
+  font-size: 12px; font-weight: 700;
+}
+.rp-slot__rm {
+  background: transparent; border: none;
+  font-size: 13px; cursor: pointer;
+  opacity: 0.5; transition: opacity 0.15s; line-height: 1;
+  color: inherit; padding: 0;
+}
+.rp-slot__rm:hover { opacity: 1; }
+
+/* Groups */
+.rp-group {
+  position: relative; display: inline-flex; flex-direction: column;
+  gap: 8px; border: 1px solid; border-radius: 6px; padding: 10px 12px 10px 10px;
+  margin: 4px;
+}
+.rp-group--series {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.05);
+}
+.rp-group--parallel {
+  border-color: rgba(250, 204, 21, 0.35);
+  background: rgba(250, 204, 21, 0.04);
+}
+.rp-group__label {
+  font-family: 'Courier New', monospace;
+  font-size: 8px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  position: absolute; top: -7px; left: 8px;
+  padding: 0 5px; border-radius: 2px;
+}
+.rp-group--series .rp-group__label {
+  background: var(--bp-bg); color: rgba(147, 197, 253, 0.7);
+}
+.rp-group--parallel .rp-group__label {
+  background: var(--bp-bg); color: rgba(250, 204, 21, 0.7);
+}
+.rp-group__children--series {
+  display: flex; flex-direction: row; flex-wrap: wrap;
+  align-items: center; gap: 6px;
+}
+.rp-group__children--parallel {
+  display: flex; flex-direction: column; gap: 6px;
+}
+.rp-group__add {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px dashed rgba(59, 130, 246, 0.35);
+  color: rgba(147, 197, 253, 0.65);
+  padding: 4px 10px; border-radius: 3px;
+  cursor: pointer; font-size: 11px; font-weight: 600;
+  transition: all 0.15s; font-family: inherit;
+  white-space: nowrap;
+}
+.rp-group__add:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: var(--bp-blue); color: #93c5fd;
+}
+.rp-group__add--par {
+  background: rgba(250, 204, 21, 0.08);
+  border-color: rgba(250, 204, 21, 0.3);
+  color: rgba(250, 204, 21, 0.6);
+}
+.rp-group__add--par:hover {
+  background: rgba(250, 204, 21, 0.15);
+  border-color: var(--bp-yellow); color: var(--bp-yellow);
+}
+.rp-group__rm {
+  position: absolute; top: -8px; right: -8px;
+  width: 16px; height: 16px;
+  background: rgba(248, 113, 113, 0.15);
+  border: 1px solid rgba(248, 113, 113, 0.35) !important;
+  border-radius: 50%; font-size: 10px !important;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--bp-red) !important; opacity: 1 !important;
+}
+.rp-group__rm:hover { background: rgba(248, 113, 113, 0.3) !important; }
+
+/* ── Derivation ──────────────────────────────────────────────────────────── */
+.rp-derivation {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  border-radius: 6px; padding: 12px 16px;
+  font-family: 'Courier New', monospace; font-size: 12px;
+}
+.rp-derivation__title {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--bp-muted); margin-bottom: 8px;
+}
+.rp-derivation__title sub { font-size: 8px; }
+.rp-derivation__result {
+  margin-top: 8px; font-size: 14px; color: var(--bp-text);
+}
+.rp-derivation__result sub { font-size: 10px; }
+.rp-derivation__result strong { color: var(--bp-cyan); font-size: 16px; }
+.rp-deriv__r {
+  color: var(--bp-cyan); font-weight: 700;
+}
+.rp-deriv__op { color: var(--bp-muted); }
+.rp-deriv__group { color: var(--bp-text); }
+.rp-deriv__group--series strong { color: #4ade80; }
+.rp-deriv__group--parallel strong { color: var(--bp-yellow); }
+
+/* ── Formula cards ───────────────────────────────────────────────────────── */
+.rp-formulas {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  justify-content: center; width: 100%; max-width: 900px;
+}
+.rp-formula-card {
+  flex: 1; min-width: 240px;
+  background: var(--bp-card);
+  border-radius: 6px; padding: 14px 18px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.rp-formula-card--series {
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+.rp-formula-card--parallel {
+  border: 1px solid rgba(250, 204, 21, 0.22);
+}
+.rp-formula-card__title {
+  font-family: 'Courier New', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase;
+}
+.rp-formula-card--series .rp-formula-card__title { color: #93c5fd; }
+.rp-formula-card--parallel .rp-formula-card__title { color: var(--bp-yellow); }
+.rp-formula-card code {
+  font-family: 'Courier New', monospace;
+  font-size: 13px; font-weight: 700;
+  color: var(--bp-text);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 5px 10px; border-radius: 3px;
+  display: block;
+}
+.rp-formula-card code sub { font-size: 10px; }
+.rp-formula-card p {
+  margin: 0; font-size: 11px; color: var(--bp-muted); line-height: 1.5;
+}
