@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLang } from "../context/LanguageContext";
 import SimulationCard from "../components/SimulationCard";
 import simulations from "../data/simulations";
@@ -7,6 +7,7 @@ import "./Categories.css";
 
 export default function Categories() {
   const { t } = useLang();
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState(null);
 
   const filtered = activeCategory
@@ -26,10 +27,10 @@ export default function Categories() {
       <div className="cat-grid">
         <div
           className={`cat-card cat-card--physics ${activeCategory === "Physique" ? "cat-card--active" : ""}`}
-          onClick={() => setActiveCategory((c) => (c === "Physique" ? null : "Physique"))}
+          onClick={() => navigate("/niveau/Physique")}
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => e.key === "Enter" && setActiveCategory((c) => (c === "Physique" ? null : "Physique"))}
+          onKeyDown={(e) => e.key === "Enter" && navigate("/niveau/Physique")}
         >
           <span className="cat-card-icon">🔭</span>
           <h2 className="cat-card-name">{t.physics}</h2>
@@ -41,10 +42,10 @@ export default function Categories() {
 
         <div
           className={`cat-card cat-card--chemistry ${activeCategory === "Chimie" ? "cat-card--active" : ""}`}
-          onClick={() => setActiveCategory((c) => (c === "Chimie" ? null : "Chimie"))}
+          onClick={() => navigate("/niveau/Chimie")}
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => e.key === "Enter" && setActiveCategory((c) => (c === "Chimie" ? null : "Chimie"))}
+          onKeyDown={(e) => e.key === "Enter" && navigate("/niveau/Chimie")}
         >
           <span className="cat-card-icon">🧬</span>
           <h2 className="cat-card-name">{t.chemistry}</h2>

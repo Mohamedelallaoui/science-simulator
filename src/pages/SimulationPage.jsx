@@ -2,10 +2,20 @@ import { useParams, Link } from "react-router-dom";
 import { useLang } from "../context/LanguageContext";
 import simulations from "../data/simulations";
 import ProjectileSimulation from "../simulations/ProjectileSimulation";
+import CircuitSimulation from "../simulations/CircuitSimulation";
+import PHSimulation from "../simulations/PHSimulation";
+import ForcesSimulation from "../simulations/ForcesSimulation";
+import LensSimulation from "../simulations/LensSimulation";
+import RCSimulation from "../simulations/RCSimulation";
 import "./SimulationPage.css";
 
 const SIM_COMPONENTS = {
   projectile: ProjectileSimulation,
+  circuit: CircuitSimulation,
+  ph: PHSimulation,
+  forces: ForcesSimulation,
+  lens: LensSimulation,
+  rc: RCSimulation,
 };
 
 export default function SimulationPage() {
